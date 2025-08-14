@@ -475,35 +475,36 @@ nav {
     display: none; 
 }
 
+/* تعديلات أسهم التمرير */
 .scroll-btn {
-    background-color: #d23669;
-    color: white;
-    border: none;
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     width: 40px;
     height: 40px;
+    background-color: rgba(210, 54, 105, 0.8);
+    color: white;
+    border: none;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     cursor: pointer;
     z-index: 10;
-    transition: all 0.3s ease;
-    display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .scroll-btn:hover {
-    background-color: #922247;
-    transform: scale(1.1);
+    background-color: rgba(210, 54, 105, 1);
 }
 
 .left-btn {
-    position: absolute;
     left: 10px;
 }
 
 .right-btn {
-    position: absolute;
     right: 10px;
 }
 
@@ -1034,5 +1035,33 @@ footer {
     
     .products-grid {
         gap: 1rem;
+    }
+}
+/* إظهار الأسهم في النطاق المطلوب */
+@media (min-width: 340px) and (max-width: 540px) {
+    .products-container {
+        position: relative;
+        padding: 0 40px;
+    }
+    
+    .scroll-btn {
+        display: flex !important;
+    }
+    
+    .products-grid {
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .products-grid::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* للأجهزة الأصغر من 340px */
+@media (max-width: 339px) {
+    .scroll-btn {
+        display: none !important;
     }
 }
