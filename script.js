@@ -197,3 +197,78 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(setupProductScroll, 500);
     });
 });
+
+// عرض تفاصيل المنتج في المودال
+function setupProductModals() {
+    const productCards = document.querySelectorAll('.product-card');
+    const modal = document.getElementById('productModal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // بيانات المنتجات (يمكن استبدالها ببيانات حقيقية من قاعدة بيانات)
+    const productsData = {
+        "1": { description: "Beautiful ceramic flower pot with elegant design. Perfect for indoor plants." },
+        "2": { description: "Luxury bouquet with fresh roses and seasonal flowers. Hand-arranged by our florists." },
+        "3": { description: "Artistic floral resin decoration. Unique gift for special occasions." }
+    };
+    
+    productCards.forEach(card => {
+        // إنشاء عنصر الأيقونة بدلاً من الزر
+        const viewIcon = document.createElement('div');
+        viewIcon.className = 'view-product-icon';
+        viewIcon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+        
+        // إضافة الأيقونة إلى بطاقة المنتج
+        card.querySelector('.product-info').appendChild(viewIcon);
+        
+        viewIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            
+            const productId = card.querySelector('.add-to-cart').getAttribute('data-id');
+            const productImg = card.querySelector('.product-img').src;
+            const productTitle = card.querySelector('.product-title').textContent;
+            const productPrice = card.querySelector('.product-price').textContent;
+            
+            document.getElementById('modalProductImage').src = productImg;
+            document.getElementById('modalProductTitle').textContent = productTitle;
+            document.getElementById('modalProductPrice').textContent = productPrice;
+            document.getElementById('modalProductDescription').textContent = 
+                productsData[productId]?.description || "High-quality product with unique design.";
+            
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+    
+    // إغلاق المودال
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // إغلاق عند النقر خارج المحتوى
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+    
+    // إضافة إلى السلة من المودال
+    document.querySelector('.add-to-cart-modal').addEventListener('click', function() {
+        const productTitle = document.getElementById('modalProductTitle').textContent;
+        alert(`${productTitle} has been added to your cart!`);
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+        
+        // زيادة عداد السلة
+        cartItems++;
+        cartCount.textContent = cartItems;
+        cartCount.style.display = 'inline-block';
+    });
+}
+
+// استدعاء الدالة عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function() {
+    setupProductModals();
+    // ... باقي الكود الحالي ...
+});
