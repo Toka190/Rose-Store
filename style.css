@@ -776,3 +776,263 @@ footer {
         height: 0;
     }
 }
+/* تحسينات لـ Redmi 9 وأجهزة الموبايل المتوسطة */
+@media (max-width: 393px) {
+    /* تعديلات شريط التنقل */
+    .logo {
+        font-size: 24px;
+    }
+    
+    .hamburger {
+        font-size: 1.3rem;
+    }
+    
+    .nav-links {
+        top: 50px;
+    }
+    
+    /* تعديلات قسم Hero */
+    .hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+        max-width: 90%;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    /* تعديلات قسم About Us */
+    .about {
+        padding: 2rem 1rem;
+    }
+    
+    .about-text, .about-image {
+        min-width: 100%;
+    }
+    
+    .image-wrapper {
+        width: 100%;
+    }
+    
+    .experience-badge {
+        width: 80px;
+        height: 80px;
+        padding: 1rem;
+    }
+    
+    .years {
+        font-size: 1.3rem;
+    }
+    
+    .text {
+        font-size: 0.6rem;
+    }
+    
+    /* تعديلات قسم المنتجات */
+    .products {
+        padding: 2rem 1rem;
+    }
+    
+    .product-card {
+        min-width: 200px;
+    }
+    
+    .product-img {
+        height: 150px;
+    }
+    
+    /* تعديلات نموذج الطلب */
+    .order-form {
+        padding: 2rem 1rem;
+    }
+    
+    form {
+        padding: 1rem;
+    }
+    
+    /* إخفاء أسهم التمرير في الموبايل */
+    .scroll-btn {
+        display: none !important;
+    }
+    
+    /* تمكين التمرير بالسحب */
+    .products-grid {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .product-card {
+        scroll-snap-align: start;
+    }
+}
+
+/* General Mobile Styles (applies to all mobile devices) */
+@media (max-width: 767px) {
+    /* Navigation Bar */
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    
+    .nav-links.active {
+        display: flex;
+    }
+    
+    .nav-links li {
+        margin: 0.5rem 0;
+    }
+    
+    .hamburger {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+        max-width: 90%;
+    }
+    
+    .btn {
+        padding: 0.9rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    /* About Section */
+    .about {
+        padding: 2rem 1rem;
+    }
+    
+    .about-text, .about-image {
+        min-width: 100%;
+    }
+    
+    .image-wrapper {
+        width: 100%;
+    }
+    
+    .experience-badge {
+        width: 80px;
+        height: 80px;
+        padding: 1rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Products Section */
+    .products {
+        padding: 2rem 1rem;
+    }
+    
+    .product-card {
+        min-width: 220px;
+    }
+    
+    .product-img {
+        height: 160px;
+    }
+    
+    /* Hide scroll buttons on all mobile devices */
+    .scroll-btn {
+        display: none !important;
+    }
+    
+    /* Enable touch scrolling */
+    .products-grid {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+        padding-bottom: 15px;
+    }
+    
+    .product-card {
+        scroll-snap-align: start;
+    }
+    
+    /* Form Section */
+    .order-form {
+        padding: 2rem 1rem;
+    }
+    
+    form {
+        padding: 1.5rem;
+    }
+}
+
+/* Specific adjustments for Redmi 9 (394px-428px width range) */
+@media (min-width: 394px) and (max-width: 428px) {
+    .hero h1 {
+        font-size: 2.8rem;
+    }
+    
+    .hero p {
+        font-size: 1.2rem;
+    }
+    
+    .product-card {
+        min-width: 240px;
+    }
+    
+    .logo {
+        font-size: 26px;
+    }
+}
+
+/* Small mobile devices (below 394px) */
+@media (max-width: 393px) {
+    .logo {
+        font-size: 22px;
+    }
+    
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero p {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        padding: 0.8rem 1.8rem;
+        font-size: 1rem;
+    }
+    
+    .product-card {
+        min-width: 200px;
+    }
+    
+    .product-img {
+        height: 140px;
+    }
+}
+
+/* Landscape orientation */
+@media (max-width: 767px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        padding: 4rem 0;
+    }
+    
+    .nav-links {
+        top: 50px;
+    }
+    
+    .products-grid {
+        gap: 1rem;
+    }
+}
